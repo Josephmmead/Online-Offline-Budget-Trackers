@@ -1,4 +1,5 @@
 let db;
+let transactions = [];
 const request = indexedDB.open("budget", 1);
 
 request.onupgradeneeded = function (event) {
@@ -16,7 +17,7 @@ request.onsuccess = function (event) {
 };
 
 request.onerror = function (event) {
-  console.log("Woops! " + event.target.errorCode);
+  console.log("Looks like there was an error " + event.target.errorCode);
 };
 
 function saveRecord(record) {
